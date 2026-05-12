@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChirpController;
+use App\Http\Controllers\CrudController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,4 +25,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('chirps', ChirpController::class)->only(['index', 'store']);
+    Route::resource('cruds', CrudController::class);
 });

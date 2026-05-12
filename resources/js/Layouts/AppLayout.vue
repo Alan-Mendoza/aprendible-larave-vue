@@ -54,6 +54,9 @@ const logout = () => {
                                 <NavLink :href="route('chirps.index')" :active="route().current('chirps.index')">
                                     Chirps
                                 </NavLink>
+                                <NavLink :href="route('cruds.index')" :active="route().current('cruds.index')">
+                                    Cruds
+                                </NavLink>
                             </div>
                         </div>
 
@@ -199,6 +202,9 @@ const logout = () => {
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('chirps.index')" :active="route().current('chirps.index')">
                             Chirps
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('cruds.index')" :active="route().current('cruds.index')">
+                            Cruds
                         </ResponsiveNavLink>
                     </div>
 
