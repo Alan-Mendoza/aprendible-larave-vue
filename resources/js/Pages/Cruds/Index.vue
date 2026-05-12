@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Head, useForm } from '@inertiajs/vue3';
+import { Head, useForm, usePage } from '@inertiajs/vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import InputError from '@/Components/InputError.vue';
 
@@ -12,6 +12,7 @@ const form = useForm({
 function submit() {
     form.post(route('cruds.store'), {
         onSuccess: () => form.reset(),
+        preserveState: false,
     })
 }
 </script>

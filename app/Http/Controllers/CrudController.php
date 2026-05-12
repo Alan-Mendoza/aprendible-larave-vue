@@ -38,7 +38,7 @@ class CrudController extends Controller
 
         Crud::create($request->only('name', 'description'));
 
-        return redirect()->route('cruds.index')->with('success', 'Crud created successfully.');
+        return back()->with('status', __('Crud created successfully.'));
     }
 
     /**

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { Head, Link, router } from '@inertiajs/vue3';
+import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import ApplicationMark from '@/Components/ApplicationMark.vue';
 import Banner from '@/Components/Banner.vue';
 import Dropdown from '@/Components/Dropdown.vue';
@@ -11,6 +11,9 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 defineProps({
     title: String,
 });
+
+const { status } = usePage().props;
+// console.log(status);
 
 const showingNavigationDropdown = ref(false);
 
@@ -29,6 +32,9 @@ const logout = () => {
 
 <template>
     <div>
+        <div v-if="status" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+            {{ status }}
+        </div>
         <Head :title="title" />
 
         <Banner />
