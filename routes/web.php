@@ -4,13 +4,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('chirps', function () {
-    return Inertia::render('Chirps/Index', [
-        'title' => 'Chirps',
-        'subtitle' => 'Variable desde el servidor de PHP',
-    ]);
-});
-
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -28,4 +21,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('chirps', function () {
+        return Inertia::render('Chirps/Index', [
+            'title' => 'Chirps',
+            'subtitle' => 'Variable desde el servidor de PHP',
+        ]);
+    });
 });

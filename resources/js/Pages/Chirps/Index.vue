@@ -1,13 +1,27 @@
 <script setup>
-import MyLayout from '@/Layouts/MyLayout.vue';
-    defineProps(['title', 'subtitle'])
+import AppLayout from '@/Layouts/AppLayout.vue';
+import { Head } from '@inertiajs/vue3';
+
+defineProps(['title', 'subtitle']);
 </script>
 
 <template>
-    <MyLayout>
-        <template #title>
-            <h1>{{ title }}</h1>
+    <AppLayout>
+        <Head title="Chirps">
+            <meta name="description" content="Chirps description" />
+        </Head>
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                {{ title }}
+            </h2>
         </template>
-        <h2>{{ subtitle }}</h2>
-    </MyLayout>
+
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 dark:text-gray-200 overflow-hidden shadow-xl sm:rounded-lg p-5">
+                    {{ subtitle }}
+                </div>
+            </div>
+        </div>
+    </AppLayout>
 </template>
