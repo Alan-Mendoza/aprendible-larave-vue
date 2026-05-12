@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Chirp;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ChirpController extends Controller
 {
@@ -12,7 +13,10 @@ class ChirpController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Chirps/Index', [
+            'title' => 'Chirps',
+            'subtitle' => 'Variable desde el servidor de PHP',
+        ]);
     }
 
     /**
@@ -28,7 +32,9 @@ class ChirpController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->user()->chirps()->create([
+            'message' => $request->input('message'),
+        ]);
     }
 
     /**

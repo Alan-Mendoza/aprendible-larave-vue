@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChirpController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -22,10 +23,5 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('chirps', function () {
-        return Inertia::render('Chirps/Index', [
-            'title' => 'Chirps',
-            'subtitle' => 'Variable desde el servidor de PHP',
-        ]);
-    })->name('chirps.index');
+    Route::resource('chirps', ChirpController::class)->only(['index', 'store']);
 });
