@@ -27,5 +27,5 @@ Route::middleware([
             'title' => 'Chirps',
             'subtitle' => 'Variable desde el servidor de PHP',
         ]);
-    });
+    })->name('chirps.index');
 });
